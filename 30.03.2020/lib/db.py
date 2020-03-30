@@ -36,9 +36,19 @@ def dell_capital(country):
 def update_capital(Country, stolbic, ADDRES):
     db = connect_to_db()
     cursor = db.cursor()
-    sql = "UPDATE capitals SET ADDRES = '" + \
-        stolbic + "' WHERE country='" + Country + "'"
-    val = (Country, stolbic, ADDRES)
-    cursor.execute(sql, val)
+    if ADDRES == "country":
+        sql = "UPDATE capitals SET country = '" + \
+            stolbic + "' WHERE country = '" + Country + "'"
+    elif ADDRES == "capital":
+        sql = "UPDATE capitals SET capital = '" + \
+            stolbic + "' WHERE country = '" + Country + "'"
+    elif ADDRES == "population":
+        sql = "UPDATE capitals SET population = '" + \
+            stolbic + "' WHERE country = '" + Country + "'"
+    elif ADDRES == "mayor":
+        sql = "UPDATE capitals SET mayor = '" + \
+            stolbic + "' WHERE country = '" + Country + "'"
+
+    cursor.execute(sql)
     db.commit()
     print(cursor.rowcount, "Update stolbic")

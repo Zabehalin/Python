@@ -16,7 +16,8 @@ def dellete():
 
 def update():
     Country = input("Country => ")
-    stolbic = int(input("1. country\t2. capital\t3. population\t 4. mayor"))
+    stolbic = int(
+        input("1. country\t2. capital\t3. population\t 4. mayor => "))
     ADDRES = "test"
     if stolbic == 1:
         ADDRES = "country"
@@ -39,7 +40,7 @@ def update():
 def menyu():
     exit = True
     while exit:
-        vyb = int(input("1. NEW Kraina\t2.DEL Kraina\t3. update\t0. EXIT    "))
+        vyb = int(input("1. NEW Kraina\t2.DEL Kraina\t3. update\t0. EXIT => "))
         if vyb == 1:
             zapovnen()
         elif vyb == 2:
