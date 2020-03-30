@@ -20,12 +20,23 @@ def zapovnen():
     return country, capital, population, mayor
 
 
+def dellete():
+    country = input("Country: ")
+    sql = "DELETE FROM `capitals` WHERE country=country"
+    val = (country)
+    cursor.execute(sql, val)
+    db.commit()
+    print(cursor.rowcount, "recort del inserted")
+
+
 def menyu():
     exit = True
     while exit:
-        vyb = int(input("1. NEW Kraina\t0. EXIT    "))
+        vyb = int(input("1. NEW Kraina\t2.DEL Kraina\t0. EXIT    "))
         if vyb == 1:
             zapovnen()
+        elif vyb == 2:
+            dellete()
         elif vyb == 0:
             exit = False
 
