@@ -1,4 +1,4 @@
-from lib.db import add_capital, dell_capital, update_capital
+from lib.db import add_capital, dell_capital, update_capital, vyvid_str
 
 
 def zapovnen():
@@ -37,16 +37,24 @@ def update():
         update_capital(Country, mayor, ADDRES)
 
 
+def vyvid_stroc():
+    stroc = input("Enter country => ")
+    vyvid_str(stroc)
+
+
 def menyu():
     exit = True
     while exit:
-        vyb = int(input("1. NEW Kraina\t2.DEL Kraina\t3. update\t0. EXIT => "))
+        vyb = int(
+            input("1. NEW Kraina\t2.DEL Kraina\t3. update\t4. Vyvid stroci\t   0. EXIT => "))
         if vyb == 1:
             zapovnen()
         elif vyb == 2:
             dellete()
         elif vyb == 3:
             update()
+        elif vyb == 4:
+            vyvid_stroc()
         elif vyb == 0:
             exit = False
 
