@@ -31,6 +31,7 @@ def get_movie(URL):
 
 
 def get_plylist(URL):
-    command = "youtube-dl -f " + URL + " - c"
-    os.chdir("Downloads_Plylist")
+    choice_format = input("Format code => ")
+    command = "youtube-dl -f " + choice_format + " " + URL + " -c"
+    os.chdir("Downloads")
     call(command.split(), shell=False)
