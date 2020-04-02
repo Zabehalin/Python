@@ -1,10 +1,10 @@
-from lib.db import add_corona
+from lib.db import add_corona, dell, vyvid_str
 import requests
 
 URL = "https://api.covid19api.com/summary"
 
 
-def menyu(URL):
+def XZ_URL(URL):
     responce = requests.get(URL)
     return responce.json()
 
@@ -28,4 +28,19 @@ def zapov(coron):
                    NewDeaths, TotalDeaths, NewRecovered, TotalRecovered)
 
 
-zapov(coron)
+def menyu(coron):
+    exit = True
+    while exit:
+        vyb = int(input("1. Vyvesty\t2. Obnovyty\t0. EXIT => "))
+        if vyb == 1:
+            print("vyv")
+            vyvid_str()
+        elif vyb == 2:
+            print("obnov")
+            dell()
+            zapov(coron)
+        elif vyb == 0:
+            exit = False
+
+
+menyu(coron)

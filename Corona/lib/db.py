@@ -2,7 +2,9 @@ import mysql.connector
 
 if __name__ == "__main__":
     connect_to_db,
-    add_corona
+    add_corona,
+    dell,
+    vyvid_str
 
 
 def connect_to_db():
@@ -25,3 +27,23 @@ def add_corona(Country, Slug, NewConfirmed, TotalConfirmed, NewDeaths, TotalDeat
     cursor.execute(sql, val)
     db.commit()
     print(cursor.rowcount, "Coron added")
+
+
+def dell():
+    db = connect_to_db()
+    cursor = db.cursor()
+    sql = "DELETE FROM `coron`"
+    cursor.execute(sql)
+    db.commit()
+    print(cursor.rowcount, "recort del inserted")
+
+
+def vyvid_str():
+    db = connect_to_db()
+    cursor = db.cursor()
+    sql = "SELECT Country , TotalConfirmed FROM coron ORDER BY TotalConfirmed"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for item in results:
+        print(item)
+    print(cursor.rowcount, "Vyvyd stroc")
